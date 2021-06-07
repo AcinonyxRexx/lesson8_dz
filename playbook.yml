@@ -41,7 +41,7 @@
         repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
         dest: /root/dz/boxfuse-sample-java-war-hello
     - name: Running mvn clean
-        shell: "mvn -f /root/dz/boxfuse-sample-java-war-hello/pom.xml package"
+      shell: "mvn -f /root/dz/boxfuse-sample-java-war-hello/pom.xml package"
         register: mvn_result
     - name: Fetch build
       fetch:
