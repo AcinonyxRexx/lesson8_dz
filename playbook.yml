@@ -27,7 +27,6 @@
         dest: /root/dz/boxfuse-sample-java-war-hello
     - name: Running mvn clean
       shell: "mvn -f /root/dz/boxfuse-sample-java-war-hello/pom.xml package"
-        register: mvn_result
     - name: Fetch build
       fetch:
         src: /root/dz/boxfuse-sample-java-war-hello/target/hello-1.0.war
