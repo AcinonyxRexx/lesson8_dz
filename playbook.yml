@@ -23,7 +23,6 @@
       apt:
         name: default-jdk
         state: present
-  tasks:
     - name: Ensure git is present
       apt:
         name: git
@@ -32,18 +31,15 @@
       apt:
         name: maven
         state: present
-  tasks:
     - name: Create a directory if it does not exist
       file:
         path: /root/dz
         state: directory
         mode: '0755'
-  tasks:
     - name: Git boxfuse repository is cloned
       ansible.builtin.git:
         repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
         dest: /root/dz
-
     - name: Ensure index html os present
       copy:
         src: index.html
