@@ -39,7 +39,7 @@
     - name: Git boxfuse repository is cloned
       git:
         repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
-        dest: /root/dz
+        dest: /root/dz/boxfuse-sample-java-war-hello
     - name: Ensure index html os present
       copy:
         src: index.html
