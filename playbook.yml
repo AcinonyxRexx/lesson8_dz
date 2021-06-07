@@ -40,7 +40,11 @@
       git:
         repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
         dest: /root/dz/boxfuse-sample-java-war-hello
-    - name: Ensure index html os present
-      copy:
-        src: index.html
-        dest: /var/www/html
+    - name: Running mvn clean
+        shell: "mvn -f /root/dz/boxfuse-sample-java-war-hello/pom.xml package"
+        register: mvn_result
+    - name: Fetch build
+      fetch:
+        src: /tmp/somefile
+        dest: /tmp/prefix-{{ web }}
+        flat: yes
