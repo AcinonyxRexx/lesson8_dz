@@ -37,7 +37,7 @@
         state: directory
         mode: '0755'
     - name: Git boxfuse repository is cloned
-      ansible.builtin.git:
+      git:
         clone: yes
         repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
         dest: /root/dz
