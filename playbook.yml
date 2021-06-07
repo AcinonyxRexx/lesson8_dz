@@ -1,0 +1,44 @@
+---
+- name: install software
+  hosts: web
+  become: yes
+
+  tasks:
+  - name: Ensure tomcat package is present
+    apt:
+      name: tomcat9
+      state: present
+
+  - name: Ensure tomcat service is started
+    service:
+      name: tomcat
+      state: started
+
+- name: install software
+  hosts: db
+  become: yes
+
+  tasks:
+    - name: Ensure java is present
+      apt:
+        name: default-jdk
+        state: present
+  tasks:
+    - name: Ensure git is present
+      apt:
+        name: git
+        state: present
+    - name: Ensure maven is present
+      apt:
+        name: maven
+        state: present
+  tasks:
+    - name: Git boxfuse reposytory is cloned
+      ansible.builtin.git:
+        repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
+        dest: /root/dz
+
+    - name: Ensure index html os present
+      copy:
+        src: index.html
+        dest: /var/www/html
